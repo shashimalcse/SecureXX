@@ -2,6 +2,7 @@ package com.example.securex.registrationStageOne;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.securex.R;
+import com.example.securex.RegistartionStageTwo.RegistrationStageTowActivity;
 
 import javax.inject.Inject;
 
@@ -66,6 +68,7 @@ public class RegistrationStageOneActivity extends AppCompatActivity implements R
     @Override
     public void showSuccess() {
         Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(RegistrationStageOneActivity.this, RegistrationStageTowActivity.class));
 
     }
 }
