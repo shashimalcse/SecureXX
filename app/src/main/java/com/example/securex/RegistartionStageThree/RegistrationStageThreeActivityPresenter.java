@@ -22,6 +22,7 @@ public class RegistrationStageThreeActivityPresenter implements RegistrationStag
     private String Password;
     Context context;
     GridView gridView;
+    private String ConfirmPassword;
 
     public RegistrationStageThreeActivityPresenter(Context context,GridView gridView) {
         SelectedPositions = new ArrayList<>();
@@ -103,16 +104,23 @@ public class RegistrationStageThreeActivityPresenter implements RegistrationStag
     @Override
     public void confirm2ButtonClicked() {
 
-        Password = "";
+        ConfirmPassword = "";
         int PasswordSize = SelectedPositions.size();
         for(int i=0;i<SelectedPositions.size();i++){
 
-            Password+=context.getResources().getResourceEntryName(FruitsArray.get(SelectedPositions.get(i)));
+            ConfirmPassword+=context.getResources().getResourceEntryName(FruitsArray.get(SelectedPositions.get(i)));
 
         }
-        if(Password.equals("")){
-
+        if(ConfirmPassword.equals("")){
+            if(ConfirmPassword.equals(view.getPassword())){
+                view.showSuccess();
+                view.startNextActivity(ConfirmPassword);
+            }
+            else {
+                view.showError();;
+            }
         }
+        else view.showError();
 
     }
 

@@ -12,7 +12,7 @@ public interface RegistrationStageThreeActivityMVP {
 
         void showSuccess();
 
-        void
+        void showError();
 
         void setColumns();
 
@@ -28,6 +28,8 @@ public interface RegistrationStageThreeActivityMVP {
         int getSize();
 
         String getColor();
+
+        String getPassword();
 
 
 

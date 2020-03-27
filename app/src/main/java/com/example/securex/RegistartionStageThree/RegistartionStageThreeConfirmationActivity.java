@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.securex.R;
 
@@ -67,7 +68,13 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
 
     @Override
     public void showSuccess() {
+        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
 
+    }
+
+    @Override
+    public void showError() {
+        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -86,6 +93,12 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
 
     @Override
     public void startNextActivity(String Password) {
+        Intent i = new Intent(RegistartionStageThreeConfirmationActivity.this,RegistartionStageThreeConfirmationActivity.class);
+        i.putExtra("Username",getUsername());
+        i.putExtra("Email",getEmail());
+        i.putExtra("Size",getSize());
+        i.putExtra("Color",getColor());
+        startActivity(i);
 
     }
 
@@ -107,6 +120,10 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
     @Override
     public String getColor() {
         return intent.getStringExtra("Color");
+    }
+
+    public String getPassword(){
+        return  intent.getStringExtra("Password");
     }
 
 
