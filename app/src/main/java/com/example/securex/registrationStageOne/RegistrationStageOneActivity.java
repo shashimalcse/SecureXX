@@ -68,7 +68,16 @@ public class RegistrationStageOneActivity extends AppCompatActivity implements R
     @Override
     public void showSuccess() {
         Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(RegistrationStageOneActivity.this, RegistrationStageTowActivity.class));
+;
+
+    }
+
+    @Override
+    public void startNextActivity() {
+        Intent intent = new Intent(RegistrationStageOneActivity.this, RegistrationStageTowActivity.class);
+        intent.putExtra("Username",getUsername());
+        intent.putExtra("Email",getEmail());
+        startActivity(intent);
 
     }
 }

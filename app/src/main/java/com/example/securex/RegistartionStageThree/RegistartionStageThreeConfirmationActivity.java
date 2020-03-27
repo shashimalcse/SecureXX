@@ -2,7 +2,6 @@ package com.example.securex.RegistartionStageThree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import android.widget.GridView;
 
 import com.example.securex.R;
 
-public class RegistrationStageThreeActivity extends AppCompatActivity implements RegistrationStageThreeActivityMVP.View {
+public class RegistartionStageThreeConfirmationActivity extends AppCompatActivity implements RegistrationStageThreeActivityMVP.View {
 
     GridView gridView;
     Button Confirm;
@@ -24,10 +23,11 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration_stage_three);
-        gridView = (GridView) findViewById(R.id.gridview);
-        Confirm = (Button) findViewById(R.id.fruitsconfirmbtn);
-        Remove = (Button) findViewById(R.id.fruitsremovebtn);
+        setContentView(R.layout.activity_registartion_stage_three_confirmation);
+
+        gridView = (GridView) findViewById(R.id.gridview2);
+        Confirm = (Button) findViewById(R.id.fruitsconfirmbtn2);
+        Remove = (Button) findViewById(R.id.fruitsremovebtn2);
 
         presenter = new RegistrationStageThreeActivityPresenter(getApplicationContext(),gridView);
         presenter.setView(this);
@@ -47,7 +47,7 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
 
-                presenter.confirmButtonClicked();
+                presenter.confirm2ButtonClicked();
             }
         });
 
@@ -63,7 +63,6 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
 
     @Override
     public void showSuccess() {
-        startActivity(new Intent(RegistrationStageThreeActivity.this,RegistartionStageThreeConfirmationActivity.class));
 
     }
 
@@ -80,6 +79,5 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
         gridView.setAdapter(imageAdapter);
         presenter.getFruitsArray(imageAdapter);
     }
-
 
 }

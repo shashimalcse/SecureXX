@@ -15,6 +15,8 @@ public interface RegistrationStageOneActivityMVP {
 
         void showSuccess();
 
+        void startNextActivity();
+
 
     }
 

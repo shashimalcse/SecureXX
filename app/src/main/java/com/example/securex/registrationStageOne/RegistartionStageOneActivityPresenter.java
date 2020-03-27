@@ -24,6 +24,7 @@ public class RegistartionStageOneActivityPresenter implements RegistrationStageO
 
             if(Validation.equals("valid")){
                 view.showSuccess();
+                view.startNextActivity();
             }
             else if(Validation.equals("not valid")){
                 view.showEmailError();

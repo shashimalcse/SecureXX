@@ -96,6 +96,22 @@ public class RegistrationStageThreeActivityPresenter implements RegistrationStag
         FruitsArray = imageAdapter.getImageID();
     }
 
+    @Override
+    public void confirm2ButtonClicked() {
+
+        Password = "";
+        int PasswordSize = SelectedPositions.size();
+        for(int i=0;i<SelectedPositions.size();i++){
+
+            Password+=context.getResources().getResourceEntryName(FruitsArray.get(SelectedPositions.get(i)));
+
+        }
+        Log.d("s",Password);
+
+        view.showSuccess();
+
+    }
+
 }
 
 

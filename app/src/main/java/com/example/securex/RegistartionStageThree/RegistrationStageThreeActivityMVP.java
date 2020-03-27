@@ -17,6 +17,8 @@ public interface RegistrationStageThreeActivityMVP {
 
         void setAdapter() ;
 
+        void getSize();
+
 
 
     }
@@ -33,5 +35,6 @@ public interface RegistrationStageThreeActivityMVP {
         void getFruitsArray(ImageAdapter imageAdapter);
 
 
+        void confirm2ButtonClicked();
     }
 }

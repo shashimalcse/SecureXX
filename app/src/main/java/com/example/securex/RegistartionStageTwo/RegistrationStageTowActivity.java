@@ -22,6 +22,7 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
     Spinner Color;
     Spinner Size;
     Button Submit;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
         presenter = new RegistrationStageTowActivityPresenter();
         presenter.setView(this);
         presenter.setSize();
+
+        intent = getIntent();
 
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
