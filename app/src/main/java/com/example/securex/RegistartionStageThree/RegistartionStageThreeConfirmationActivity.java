@@ -2,6 +2,7 @@ package com.example.securex.RegistartionStageThree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
     Button Remove;
     int Size;
     ImageAdapter imageAdapter;
+    Intent intent;
 
     RegistrationStageThreeActivityMVP.Presenter presenter;
 
@@ -28,6 +30,8 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
         gridView = (GridView) findViewById(R.id.gridview2);
         Confirm = (Button) findViewById(R.id.fruitsconfirmbtn2);
         Remove = (Button) findViewById(R.id.fruitsremovebtn2);
+
+        intent=getIntent();
 
         presenter = new RegistrationStageThreeActivityPresenter(getApplicationContext(),gridView);
         presenter.setView(this);
@@ -69,7 +73,7 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
     @Override
     public void setColumns() {
 
-        Size=4;
+        Size=getSize();
 
     }
 
@@ -81,8 +85,29 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
     }
 
     @Override
-    public void getSize() {
+    public void startNextActivity(String Password) {
 
     }
+
+    @Override
+    public String getUsername() {
+        return intent.getStringExtra("Username");
+    }
+
+    @Override
+    public String getEmail() {
+        return intent.getStringExtra("Email");
+    }
+
+    @Override
+    public int getSize() {
+        return intent.getIntExtra("Size",0);
+    }
+
+    @Override
+    public String getColor() {
+        return intent.getStringExtra("Color");
+    }
+
 
 }

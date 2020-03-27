@@ -12,12 +12,22 @@ public interface RegistrationStageThreeActivityMVP {
 
         void showSuccess();
 
+        void
+
         void setColumns();
 
 
         void setAdapter() ;
 
-        void getSize();
+        void startNextActivity(String Password);
+
+        String getUsername();
+
+        String getEmail();
+
+        int getSize();
+
+        String getColor();
 
 
 

@@ -18,6 +18,7 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
     Button Remove;
     int Size;
     ImageAdapter imageAdapter;
+    Intent intent;
 
     RegistrationStageThreeActivityMVP.Presenter presenter;
 
@@ -28,6 +29,8 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
         gridView = (GridView) findViewById(R.id.gridview);
         Confirm = (Button) findViewById(R.id.fruitsconfirmbtn);
         Remove = (Button) findViewById(R.id.fruitsremovebtn);
+
+        intent = getIntent();
 
         presenter = new RegistrationStageThreeActivityPresenter(getApplicationContext(),gridView);
         presenter.setView(this);
@@ -63,7 +66,6 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
 
     @Override
     public void showSuccess() {
-        startActivity(new Intent(RegistrationStageThreeActivity.this,RegistartionStageThreeConfirmationActivity.class));
 
     }
 
@@ -81,9 +83,35 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
         presenter.getFruitsArray(imageAdapter);
     }
 
-    @Override
-    public void getSize() {
 
+    @Override
+    public String getColor() {
+        return intent.getStringExtra("Color");
+    }
+
+    @Override
+    public void startNextActivity(String Password) {
+        Intent i = new Intent(RegistrationStageThreeActivity.this,RegistartionStageThreeConfirmationActivity.class);
+        i.putExtra("Username",getUsername());
+        i.putExtra("Email",getEmail());
+        i.putExtra("Size",getSize());
+        i.putExtra("Color",getColor());
+        startActivity(i);
+    }
+
+    @Override
+    public String getUsername() {
+        return intent.getStringExtra("Username");
+    }
+
+    @Override
+    public String getEmail() {
+        return intent.getStringExtra("Email");
+    }
+
+    @Override
+    public int getSize() {
+        return intent.getIntExtra("Size",0);
     }
 
 

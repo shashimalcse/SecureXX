@@ -47,9 +47,13 @@ public class RegistrationStageThreeActivityPresenter implements RegistrationStag
             Password+=context.getResources().getResourceEntryName(FruitsArray.get(SelectedPositions.get(i)));
 
         }
-        Log.d("s",Password);
+        if (Password.equals("")){
+            view.showSuccess();
+            view.startNextActivity(Password);
+        }
 
-        view.showSuccess();
+
+
 
     }
 
@@ -106,9 +110,9 @@ public class RegistrationStageThreeActivityPresenter implements RegistrationStag
             Password+=context.getResources().getResourceEntryName(FruitsArray.get(SelectedPositions.get(i)));
 
         }
-        Log.d("s",Password);
+        if(Password.equals("")){
 
-        view.showSuccess();
+        }
 
     }
 
