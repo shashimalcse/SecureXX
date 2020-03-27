@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.securex.R;
+import com.example.securex.RegistartionStageThree.RegistrationStageThreeActivity;
 
 public class RegistrationStageTowActivity extends AppCompatActivity implements RegistrationStageTowActivityMVP.View , AdapterView.OnItemSelectedListener{
 
@@ -106,7 +107,7 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
     @Override
     public void showSuccess() {
         Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
-
+        startActivity(new Intent(RegistrationStageTowActivity.this, RegistrationStageThreeActivity.class));
     }
 
     @Override
