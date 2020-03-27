@@ -20,6 +20,10 @@ public interface RegistrationStageTowActivityMVP {
 
         void startNextActivity();
 
+        String getUsername();
+
+        String getEmail();
+
 
 
     }

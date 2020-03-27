@@ -23,6 +23,8 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
     Spinner Size;
     Button Submit;
     Intent intent;
+    String Username;
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,10 +122,25 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
 
     @Override
     public void startNextActivity() {
-        intent.putExtra("Size",getSize());
-        intent.putExtra("Color",getColor());
-        startActivity(intent);
+        Intent i = new Intent(RegistrationStageTowActivity.this,RegistrationStageThreeActivity.class);
+        i.putExtra("Username",getUsername());
+        i.putExtra("Email",getEmail());
+        i.putExtra("Size",getSize());
+        i.putExtra("Color",getColor());
+        startActivity(i);
 
+    }
+
+    @Override
+    public String getUsername() {
+        Username= intent.getStringExtra("Username");
+        return Username;
+    }
+
+    @Override
+    public String getEmail() {
+        Email = intent.getStringExtra("Email");
+        return  Email;
     }
 
     @Override

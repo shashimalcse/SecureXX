@@ -81,5 +81,10 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
         presenter.getFruitsArray(imageAdapter);
     }
 
+    @Override
+    public void getSize() {
+
+    }
+
 
 }
