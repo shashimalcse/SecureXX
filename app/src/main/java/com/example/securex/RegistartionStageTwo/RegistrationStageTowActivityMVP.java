@@ -18,6 +18,7 @@ public interface RegistrationStageTowActivityMVP {
 
         void showError();
 
+        void startNextActivity();
 
 
 

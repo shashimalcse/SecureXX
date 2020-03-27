@@ -119,6 +119,14 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
     }
 
     @Override
+    public void startNextActivity() {
+        intent.putExtra("Size",getSize());
+        intent.putExtra("Color",getColor());
+        startActivity(intent);
+
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
     }
