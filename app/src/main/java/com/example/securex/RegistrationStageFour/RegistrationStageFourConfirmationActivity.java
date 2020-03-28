@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.securex.R;
+import com.example.securex.data.user.UserRepository;
 import com.goodiebag.pinview.Pinview;
 
 public class RegistrationStageFourConfirmationActivity extends AppCompatActivity implements RegistrationStageFourActivityMVP.View{
@@ -27,6 +28,8 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
     Intent intent;
 
     RegistrationStageFourActivityMVP.Presenter presenter;
+    RegistrationStageFourActivityMVP.Model model;
+    UserRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +43,13 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
 
         instance=this;
 
-        presenter = new RegistrationStageFourActivityPresenter();
+        presenter = new RegistrationStageConfirmationActivityPresenter();
         presenter.setView(this);
 
         pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override
             public void onDataEntered(Pinview pinview, boolean fromUser) {
-                presenter.pinListener2();
+                presenter.pinListener();
             }
         });
     }
@@ -77,8 +80,8 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
     }
 
     @Override
-    public int getSize() {
-        return 0;
+    public String getSize() {
+        return intent.getStringExtra("Size");
     }
 
     @Override

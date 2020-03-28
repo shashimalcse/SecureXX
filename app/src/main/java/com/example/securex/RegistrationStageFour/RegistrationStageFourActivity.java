@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.securex.R;
-import com.example.securex.RegistartionStageThree.RegistartionStageThreeConfirmationActivity;
 import com.goodiebag.pinview.Pinview;
 
 public class RegistrationStageFourActivity extends AppCompatActivity implements RegistrationStageFourActivityMVP.View {
@@ -59,9 +59,10 @@ public class RegistrationStageFourActivity extends AppCompatActivity implements 
 
     @Override
     public void startNextActivity() {
-        Intent i = new Intent(RegistrationStageFourActivity.this, RegistartionStageThreeConfirmationActivity.class);
+        Intent i = new Intent(RegistrationStageFourActivity.this, RegistrationStageFourConfirmationActivity.class);
         i.putExtra("Username",getUsername());
         i.putExtra("Email",getEmail());
+        i.putExtra("Password",getPassword());
         i.putExtra("Size",getSize());
         i.putExtra("Color",getColor());
         i.putExtra("Pin",getPin());
@@ -80,8 +81,8 @@ public class RegistrationStageFourActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public int getSize() {
-        return 0;
+    public String getSize() {
+        return intent.getStringExtra("Size");
     }
 
     @Override

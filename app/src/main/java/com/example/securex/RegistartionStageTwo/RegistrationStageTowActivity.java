@@ -125,7 +125,7 @@ public class RegistrationStageTowActivity extends AppCompatActivity implements R
         Intent i = new Intent(RegistrationStageTowActivity.this,RegistrationStageThreeActivity.class);
         i.putExtra("Username",getUsername());
         i.putExtra("Email",getEmail());
-        i.putExtra("Size",getSize());
+        i.putExtra("Size",Integer.toString(getSize()));
         i.putExtra("Color",getColor());
         startActivity(i);
 

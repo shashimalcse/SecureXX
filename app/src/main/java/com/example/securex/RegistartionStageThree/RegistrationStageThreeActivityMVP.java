@@ -21,6 +21,7 @@ public interface RegistrationStageThreeActivityMVP {
 
         void startNextActivity(String Password);
 
+
         String getUsername();
 
         String getEmail();

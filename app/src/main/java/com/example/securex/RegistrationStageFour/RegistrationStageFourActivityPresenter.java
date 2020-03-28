@@ -1,30 +1,36 @@
 package com.example.securex.RegistrationStageFour;
 
+import android.util.Log;
+
 public class RegistrationStageFourActivityPresenter implements RegistrationStageFourActivityMVP.Presenter{
 
     RegistrationStageFourActivityMVP.View view;
+
 
     @Override
     public void setView(RegistrationStageFourActivityMVP.View view) {
         this.view=view;
     }
 
+
     @Override
     public void pinListener() {
-        view.showSuccess();
-        view.startNextActivity();
 
-    }
-
-    @Override
-    public void pinListener2() {
-
-        if(view.getPassword().equals(view.getConfirmPin())){
-
+        if(!view.getPin().equals("")){
+            Log.d("BEFORE_SAVE_PRE",view.getUsername());
+            Log.d("BEFORE_SAVE_PRE",view.getEmail());
+            Log.d("BEFORE_SAVE_PRE",view.getColor());
+            Log.d("BEFORE_SAVE_PRE",view.getColor());
+            Log.d("BEFORE_SAVE_PRE",view.getPassword());
+            Log.d("BEFORE_SAVE_PRE",view.getPin());
+            Log.d("BEFORE_SAVE_PRE",view.getSize());
+            Log.d("AAAA",view.getPin());
             view.showSuccess();
             view.startNextActivity();
-
         }
 
+
     }
+
+
 }

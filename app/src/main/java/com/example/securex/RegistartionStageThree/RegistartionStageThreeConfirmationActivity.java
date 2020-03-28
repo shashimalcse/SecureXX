@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.securex.R;
+import com.example.securex.RegistrationStageFour.RegistrationStageFourActivity;
 
 public class RegistartionStageThreeConfirmationActivity extends AppCompatActivity implements RegistrationStageThreeActivityMVP.View {
 
@@ -93,10 +94,11 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
 
     @Override
     public void startNextActivity(String Password) {
-        Intent i = new Intent(RegistartionStageThreeConfirmationActivity.this,RegistartionStageThreeConfirmationActivity.class);
+        Intent i = new Intent(RegistartionStageThreeConfirmationActivity.this, RegistrationStageFourActivity.class);
         i.putExtra("Username",getUsername());
         i.putExtra("Email",getEmail());
-        i.putExtra("Size",getSize());
+        i.putExtra("Password",Password);
+        i.putExtra("Size",Integer.toString(getSize()));
         i.putExtra("Color",getColor());
         startActivity(i);
 
@@ -114,7 +116,7 @@ public class RegistartionStageThreeConfirmationActivity extends AppCompatActivit
 
     @Override
     public int getSize() {
-        return intent.getIntExtra("Size",0);
+        return Integer.parseInt(intent.getStringExtra("Size"));
     }
 
     @Override

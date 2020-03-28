@@ -17,7 +17,7 @@ public interface RegistrationStageFourActivityMVP {
 
         String getEmail();
 
-        int getSize();
+        String getSize();
 
         String getColor();
 
@@ -33,15 +33,17 @@ public interface RegistrationStageFourActivityMVP {
     interface Presenter {
         void setView(RegistrationStageFourActivityMVP.View view);
 
+
         void pinListener();
 
-        void pinListener2();
     }
 
     interface Model {
         void createUser(String Username, String Email,String Color,String Pin,int Size,String Password);
 
         User getUser();
+
+        void print();
 
 
     }

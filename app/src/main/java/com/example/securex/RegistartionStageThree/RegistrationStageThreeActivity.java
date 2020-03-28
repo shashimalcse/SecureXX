@@ -105,7 +105,7 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
         Intent i = new Intent(RegistrationStageThreeActivity.this,RegistartionStageThreeConfirmationActivity.class);
         i.putExtra("Username",getUsername());
         i.putExtra("Email",getEmail());
-        i.putExtra("Size",getSize());
+        i.putExtra("Size",Integer.toString(getSize()));
         i.putExtra("Color",getColor());
         i.putExtra("Password",Password);
         startActivity(i);
@@ -123,7 +123,7 @@ public class RegistrationStageThreeActivity extends AppCompatActivity implements
 
     @Override
     public int getSize() {
-        return intent.getIntExtra("Size",0);
+        return Integer.parseInt(intent.getStringExtra("Size"));
     }
 
 

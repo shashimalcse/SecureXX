@@ -2,6 +2,7 @@ package com.example.securex.data.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.securex.RegistrationStageFour.RegistrationStageFourConfirmationActivity;
 
@@ -11,10 +12,11 @@ public class UserRepository implements RegistrationRepository {
     private SharedPreferences.Editor editor;
 
     public UserRepository() {
-
+        Log.d("REPO_BEFORE","CALLED");
         Context instance = RegistrationStageFourConfirmationActivity.getInstance();
         pref = instance.getSharedPreferences("com.android.app.users",instance.MODE_PRIVATE);
         editor = pref.edit();
+        Log.d("REPO_AFTER","CALLED");
     }
 
     @Override
@@ -35,6 +37,14 @@ public class UserRepository implements RegistrationRepository {
 
     @Override
     public void saveUser(User user) {
+        Log.d("BEFORE_SAVE",user.getUsername());
+        Log.d("BEFORE_SAVE",user.getEmail());
+        Log.d("BEFORE_SAVE",user.getColor());
+        Log.d("BEFORE_SAVE",user.getColor());
+        Log.d("BEFORE_SAVE",user.getPassword());
+        Log.d("BEFORE_SAVE",user.getPin());
+        Log.d("BEFORE_SAVE",Integer.toString(user.getSize()));
+
         editor.putString("Username",user.getUsername());
         editor.putString("Email",user.getEmail());
         editor.putString("Color",user.getColor());
@@ -43,5 +53,6 @@ public class UserRepository implements RegistrationRepository {
         editor.putInt("Size",user.getSize());
 
         editor.apply();
+        Log.d("DONE","DONE");
     }
 }
