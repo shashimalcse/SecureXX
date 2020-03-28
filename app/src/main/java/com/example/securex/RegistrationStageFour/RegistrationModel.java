@@ -1,5 +1,6 @@
 package com.example.securex.RegistrationStageFour;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.securex.data.user.RegistrationRepository;
@@ -10,10 +11,12 @@ public class RegistrationModel implements RegistrationStageFourActivityMVP.Model
 
 
     private RegistrationRepository repository;
+    Context context;
 
-    public  RegistrationModel(){
+    public  RegistrationModel(Context context){
         Log.d("Model_CREATE","CALLED");
-        repository = new UserRepository();
+        this.context=context;
+        repository = new UserRepository(context);
     }
 
 

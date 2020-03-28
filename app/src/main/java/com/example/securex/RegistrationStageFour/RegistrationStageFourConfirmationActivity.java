@@ -45,6 +45,7 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
 
         presenter = new RegistrationStageConfirmationActivityPresenter();
         presenter.setView(this);
+        presenter.setContext(this);
 
         pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override

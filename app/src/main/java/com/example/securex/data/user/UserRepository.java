@@ -2,6 +2,7 @@ package com.example.securex.data.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.securex.RegistrationStageFour.RegistrationStageFourConfirmationActivity;
@@ -11,11 +12,12 @@ public class UserRepository implements RegistrationRepository {
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
-    public UserRepository() {
+    Context context;
+
+    public UserRepository(Context context) {
         Log.d("REPO_BEFORE","CALLED");
-        Context instance = RegistrationStageFourConfirmationActivity.getInstance();
-        pref = instance.getSharedPreferences("com.android.app.users",instance.MODE_PRIVATE);
-        editor = pref.edit();
+        pref = context.getSharedPreferences("com.android.app.users",context.MODE_PRIVATE);
+        editor=pref.edit();
         Log.d("REPO_AFTER","CALLED");
     }
 
@@ -45,6 +47,9 @@ public class UserRepository implements RegistrationRepository {
         Log.d("BEFORE_SAVE",user.getPin());
         Log.d("BEFORE_SAVE",Integer.toString(user.getSize()));
 
+
+        editor.clear();
+
         editor.putString("Username",user.getUsername());
         editor.putString("Email",user.getEmail());
         editor.putString("Color",user.getColor());
@@ -53,6 +58,8 @@ public class UserRepository implements RegistrationRepository {
         editor.putInt("Size",user.getSize());
 
         editor.apply();
-        Log.d("DONE","DONE");
+
+        Log.d("DONEDONE",pref.getString("Username",null));
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.securex.RegistrationStageFour;
 
+import android.content.Context;
+
 import com.example.securex.data.user.User;
 
 public interface RegistrationStageFourActivityMVP {
@@ -33,6 +35,7 @@ public interface RegistrationStageFourActivityMVP {
     interface Presenter {
         void setView(RegistrationStageFourActivityMVP.View view);
 
+        void setContext(Context context);
 
         void pinListener();
 

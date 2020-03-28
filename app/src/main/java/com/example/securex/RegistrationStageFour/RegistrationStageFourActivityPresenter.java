@@ -1,5 +1,6 @@
 package com.example.securex.RegistrationStageFour;
 
+import android.content.Context;
 import android.util.Log;
 
 public class RegistrationStageFourActivityPresenter implements RegistrationStageFourActivityMVP.Presenter{
@@ -10,6 +11,11 @@ public class RegistrationStageFourActivityPresenter implements RegistrationStage
     @Override
     public void setView(RegistrationStageFourActivityMVP.View view) {
         this.view=view;
+    }
+
+    @Override
+    public void setContext(Context context) {
+
     }
 
 
