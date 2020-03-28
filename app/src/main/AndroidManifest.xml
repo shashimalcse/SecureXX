@@ -15,8 +15,8 @@
         <activity android:name=".RegistartionStageThree.RegistartionStageThreeConfirmationActivity" />
         <activity android:name=".RegistartionStageThree.RegistrationStageThreeActivity" />
         <activity android:name=".RegistartionStageTwo.RegistrationStageTowActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".registrationStageOne.RegistrationStageOneActivity" android:launchMode="singleTop">
+        <activity android:name=".registrationStageOne.RegistrationStageOneActivity"  android:launchMode="singleTop"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
