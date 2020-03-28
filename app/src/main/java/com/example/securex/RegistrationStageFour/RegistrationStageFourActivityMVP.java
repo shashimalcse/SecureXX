@@ -39,7 +39,7 @@ public interface RegistrationStageFourActivityMVP {
     }
 
     interface Model {
-        void createUser(String name, String lastName);
+        void createUser(String Username, String Email,String Color,String Pin,int Size,String Password);
 
         User getUser();
 

@@ -5,18 +5,18 @@ public class User {
     private String Username;
     private String Email;
     private String Color;
-    private int Pin;
+    private String Pin;
     private String Password;
-    private int PasswordSize;
+    private int Size;
 
-    public User(String Username, String Email, String Color, int Pin, String Password, int PasswordSize) {
+    public User(String Username, String Email, String Color, String Pin, int Size, String Password) {
         this.Username=Username;
         this.Color=Color;
         this.Email=Email;
         this.Color=Color;
         this.Pin=Pin;
         this.Password=Password;
-        this.PasswordSize=PasswordSize;
+        this.Size=Size;
     }
 
     public String getUsername() {
@@ -31,7 +31,7 @@ public class User {
         return Color;
     }
 
-    public int getPin() {
+    public String getPin() {
         return Pin;
     }
 
@@ -39,8 +39,8 @@ public class User {
         return Password;
     }
 
-    public int getPasswordSize() {
-        return PasswordSize;
+    public int getSize() {
+        return Size;
     }
 
 
