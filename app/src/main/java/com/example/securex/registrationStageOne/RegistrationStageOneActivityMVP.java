@@ -1,5 +1,9 @@
 package com.example.securex.registrationStageOne;
 
+import android.content.Context;
+
+import com.example.securex.data.user.User;
+
 public interface RegistrationStageOneActivityMVP {
 
     interface View {
@@ -14,6 +18,8 @@ public interface RegistrationStageOneActivityMVP {
         void showSuccess();
 
         void startNextActivity();
+
+        void userExist();
 
 
     }
@@ -30,7 +36,12 @@ public interface RegistrationStageOneActivityMVP {
 
         boolean isValidUsername(String username);
 
+        void setContext(Context context);
+
+
+
 
     }
+
 
 }

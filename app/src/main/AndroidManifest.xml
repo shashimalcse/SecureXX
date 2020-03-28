@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationStageFour.RegistrationStageFourConfirmationActivity"></activity>
+        <activity android:name=".Login.LoginSpinActivity" ></activity>
+        <activity android:name=".RegistrationStageFour.RegistrationStageFourConfirmationActivity" />
         <activity android:name=".RegistrationStageFour.RegistrationStageFourActivity" />
         <activity android:name=".RegistartionStageThree.RegistartionStageThreeConfirmationActivity" />
         <activity android:name=".RegistartionStageThree.RegistrationStageThreeActivity" />
         <activity android:name=".RegistartionStageTwo.RegistrationStageTowActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".registrationStageOne.RegistrationStageOneActivity">
+        <activity android:name=".registrationStageOne.RegistrationStageOneActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -27,7 +27,7 @@ public class UserRepository implements RegistrationRepository {
         String Pin =pref.getString("Pin",null);
         String Password =pref.getString("Password",null);
         String Color =pref.getString("Color",null);
-        int Size =pref.getInt("Pin",0);
+        int Size =pref.getInt("Size",0);
 
 
         return new User(Username, Email, Color, Pin, Size,Password);
@@ -46,6 +46,7 @@ public class UserRepository implements RegistrationRepository {
         editor.putString("Password",user.getPassword());
         editor.putString("Pin",user.getPin());
         editor.putInt("Size",user.getSize());
+        editor.putString("UserStatus","Registered");
 
         editor.apply();
 

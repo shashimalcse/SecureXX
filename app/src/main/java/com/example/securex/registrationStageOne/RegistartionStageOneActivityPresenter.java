@@ -1,10 +1,14 @@
 package com.example.securex.registrationStageOne;
 
+import android.content.Context;
 import android.util.Patterns;
+
+import com.example.securex.data.user.User;
 
 public class RegistartionStageOneActivityPresenter implements RegistrationStageOneActivityMVP.Presenter {
 
     private RegistrationStageOneActivityMVP.View view;
+    Context context;
 
     private final String USERNAME_PATTERN = "^[a-z0-9_-]{3,15}$";
 
@@ -78,5 +82,11 @@ public class RegistartionStageOneActivityPresenter implements RegistrationStageO
     public boolean isValidUsername(String username){
         return (username.matches(USERNAME_PATTERN) && username.length()>=6);
     }
+
+    @Override
+    public void setContext(Context context) {
+        this.context=context;
+    }
+
 
 }
