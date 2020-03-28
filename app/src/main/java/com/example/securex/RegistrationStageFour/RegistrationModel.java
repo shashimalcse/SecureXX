@@ -14,7 +14,6 @@ public class RegistrationModel implements RegistrationStageFourActivityMVP.Model
     Context context;
 
     public  RegistrationModel(Context context){
-        Log.d("Model_CREATE","CALLED");
         this.context=context;
         repository = new UserRepository(context);
     }
@@ -23,9 +22,8 @@ public class RegistrationModel implements RegistrationStageFourActivityMVP.Model
 
     @Override
     public void createUser(String Username, String Email, String Color, String Pin, int Size, String Password) {
-        Log.d("BEFORE_CREATE","CALLED");
         repository.saveUser(new User(Username, Email, Color, Pin, Size,Password));
-        Log.d("AFTER_CREATE","CALLED");
+
     }
 
     @Override
@@ -34,8 +32,4 @@ public class RegistrationModel implements RegistrationStageFourActivityMVP.Model
     }
 
 
-    @Override
-    public void print(){
-        Log.d("FUNXCTION","called");
-    }
 }

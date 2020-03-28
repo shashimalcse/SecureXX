@@ -46,7 +46,6 @@ public interface RegistrationStageFourActivityMVP {
 
         User getUser();
 
-        void print();
 
 
     }

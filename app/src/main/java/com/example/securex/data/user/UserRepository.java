@@ -15,10 +15,9 @@ public class UserRepository implements RegistrationRepository {
     Context context;
 
     public UserRepository(Context context) {
-        Log.d("REPO_BEFORE","CALLED");
         pref = context.getSharedPreferences("com.android.app.users",context.MODE_PRIVATE);
         editor=pref.edit();
-        Log.d("REPO_AFTER","CALLED");
+
     }
 
     @Override
@@ -39,15 +38,6 @@ public class UserRepository implements RegistrationRepository {
 
     @Override
     public void saveUser(User user) {
-        Log.d("BEFORE_SAVE",user.getUsername());
-        Log.d("BEFORE_SAVE",user.getEmail());
-        Log.d("BEFORE_SAVE",user.getColor());
-        Log.d("BEFORE_SAVE",user.getColor());
-        Log.d("BEFORE_SAVE",user.getPassword());
-        Log.d("BEFORE_SAVE",user.getPin());
-        Log.d("BEFORE_SAVE",Integer.toString(user.getSize()));
-
-
         editor.clear();
 
         editor.putString("Username",user.getUsername());
@@ -58,8 +48,6 @@ public class UserRepository implements RegistrationRepository {
         editor.putInt("Size",user.getSize());
 
         editor.apply();
-
-        Log.d("DONEDONE",pref.getString("Username",null));
 
     }
 }
