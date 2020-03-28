@@ -20,7 +20,7 @@ public class RegistrationStageFourActivityPresenter implements RegistrationStage
     public void pinListener2() {
 
         if(view.getPassword().equals(view.getConfirmPin())){
-            
+
             view.showSuccess();
             view.startNextActivity();
 

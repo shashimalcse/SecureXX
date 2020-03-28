@@ -1,7 +1,5 @@
 package com.example.securex.registrationStageOne;
 
-import com.example.securex.data.User;
-
 public interface RegistrationStageOneActivityMVP {
 
     interface View {

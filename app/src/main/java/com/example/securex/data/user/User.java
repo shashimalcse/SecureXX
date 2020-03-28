@@ -1,4 +1,4 @@
-package com.example.securex.data;
+package com.example.securex.data.user;
 
 public class User {
 

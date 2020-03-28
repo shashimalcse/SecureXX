@@ -1,7 +1,6 @@
 package com.example.securex.RegistrationStageFour;
 
-import com.example.securex.RegistartionStageThree.ImageAdapter;
-import com.example.securex.RegistartionStageThree.RegistrationStageThreeActivityMVP;
+import com.example.securex.data.user.User;
 
 public interface RegistrationStageFourActivityMVP {
 
@@ -35,7 +34,16 @@ public interface RegistrationStageFourActivityMVP {
         void setView(RegistrationStageFourActivityMVP.View view);
 
         void pinListener();
+
         void pinListener2();
+    }
+
+    interface Model {
+        void createUser(String name, String lastName);
+
+        User getUser();
+
+
     }
 
 }
