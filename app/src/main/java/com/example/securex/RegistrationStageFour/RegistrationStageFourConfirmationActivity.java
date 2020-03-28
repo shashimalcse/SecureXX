@@ -2,6 +2,7 @@ package com.example.securex.RegistrationStageFour;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
     private String Color;
     private String Pin;
     private  String ConfirmPin;
+
+    private static Context instance;
 
 
     TextView description;
@@ -34,6 +37,8 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
         pinview = (Pinview) findViewById(R.id.pinview2);
 
         intent = getIntent();
+
+        instance=this;
 
         presenter = new RegistrationStageFourActivityPresenter();
         presenter.setView(this);
@@ -95,4 +100,8 @@ public class RegistrationStageFourConfirmationActivity extends AppCompatActivity
     public String getConfirmPin() {
         return pinview.getValue();
     }
+
+     public static Context getInstance(){
+        return instance;
+     }
 }

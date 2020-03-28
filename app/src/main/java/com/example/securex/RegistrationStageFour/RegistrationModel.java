@@ -2,13 +2,14 @@ package com.example.securex.RegistrationStageFour;
 
 import com.example.securex.data.user.RegistrationRepository;
 import com.example.securex.data.user.User;
+import com.example.securex.data.user.UserRepository;
 
 public class RegistrationModel implements RegistrationStageFourActivityMVP.Model {
 
 
-    private RegistrationRepository repository;
+    private UserRepository repository;
 
-    public  RegistrationModel(RegistrationRepository repository){
+    public  RegistrationModel(UserRepository repository){
         this.repository=repository;
     }
 
