@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.securex.LandingActivity;
 import com.example.securex.LoginPin.LoginPinActivity;
 import com.example.securex.R;
 import com.example.securex.data.spins.Spin;
@@ -85,6 +86,12 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
         Intent  intent = new Intent(LoginSpinActivity.this, LoginPinActivity.class);
         startActivity(intent);
 
+    }
+
+    @Override
+    public void startFinishActivity() {
+        startActivity(new Intent(LoginSpinActivity.this, LandingActivity.class));
+        finish();
     }
 
     @Override

@@ -2,9 +2,11 @@ package com.example.securex.LoginPin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.securex.LandingActivity;
 import com.example.securex.R;
 import com.goodiebag.pinview.Pinview;
 
@@ -47,6 +49,8 @@ public class LoginPinActivity extends AppCompatActivity implements LoginPinActiv
 
     @Override
     public void startNextActivity() {
+        startActivity(new Intent(LoginPinActivity.this, LandingActivity.class));
+        finish();
 
     }
 

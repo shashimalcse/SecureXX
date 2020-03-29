@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginPin.LoginPinActivity"></activity>
+        <activity android:name=".LandingActivity"></activity>
+        <activity android:name=".LoginPin.LoginPinActivity" />
         <activity android:name=".LoginSpin.LoginSpinActivity" />
         <activity android:name=".RegistrationStageFour.RegistrationStageFourConfirmationActivity" />
         <activity android:name=".RegistrationStageFour.RegistrationStageFourActivity" />

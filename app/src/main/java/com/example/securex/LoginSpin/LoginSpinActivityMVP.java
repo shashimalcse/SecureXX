@@ -16,6 +16,8 @@ public interface LoginSpinActivityMVP {
 
         void startNextActivity();
 
+        void startFinishActivity();
+
         void setSpins(Spin spin);
 
         void spinAnimation(RotateAnimation rotateAnimation);

@@ -14,7 +14,7 @@ import com.example.securex.data.spins.SpinEight;
 import com.example.securex.data.spins.SpinFour;
 import com.example.securex.data.spins.SpinSix;
 import com.example.securex.data.user.User;
-import com.example.securex.registrationStageOne.RegistrationStageOneActivity;
+
 
 import java.util.ArrayList;
 
@@ -61,11 +61,13 @@ public class LoginSpinActivityPresenter implements LoginSpinActivityMVP.Presente
 
         MatchingPassword += FruitsArray.get(Color_Index);
 
-        Log.d("PASSWORD",MatchingPassword);
+
         if (MatchingPassword.equals(UserPassword)) {
             SelectedFruits = 0;
             MatchingPassword="";
             view.showSuccess();
+            view.startFinishActivity();
+
         }
         else if (!MatchingPassword.equals(UserPassword) && SelectedFruits == FruitsArray.size()) {
             view.showError();
@@ -83,13 +85,8 @@ public class LoginSpinActivityPresenter implements LoginSpinActivityMVP.Presente
                     SelectedFruits=0;
                     MatchingPassword="";
                     view.setButtonStatus(true);
-                    Log.d("TIME","CALLED");
                 }
             }, 5000);
-
-
-            Log.d("FRUIT", FruitsArray.get(Color_Index));
-
 
         }
 
