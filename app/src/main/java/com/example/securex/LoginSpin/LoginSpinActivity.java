@@ -1,9 +1,18 @@
 package com.example.securex.LoginSpin;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
+import android.app.KeyguardManager;
 import android.content.Intent;
+import android.hardware.biometrics.BiometricManager;
+import android.hardware.fingerprint.FingerprintManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
@@ -16,6 +25,8 @@ import com.example.securex.LoginPin.LoginPinActivity;
 import com.example.securex.R;
 import com.example.securex.data.spins.Spin;
 
+import java.util.concurrent.Executor;
+
 public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinActivityMVP.View{
 
     ImageView ColorSpin;
@@ -24,9 +35,15 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
     Button SpinRightBtn;
     Button SpinConfirm;
     TextView FruitCount;
+    Button FingerPrint;
+    Button GoPin;
 
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
 
     LoginSpinActivityMVP.Presenter presenter;
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +55,23 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
         SpinRightBtn = (Button) findViewById(R.id.rightspinbtn);
         SpinConfirm = (Button) findViewById(R.id.spinconfirm);
         FruitCount = (TextView) findViewById(R.id.fruitcount);
+        FingerPrint = (Button) findViewById(R.id.fingerprint);
+        GoPin = (Button) findViewById(R.id.gopin);
 
         presenter = new LoginSpinActivityPresenter();
         presenter.setView(this);
         presenter.setContext(this);
         presenter.setSpins();
+
+       fingerprint();
+
+        FingerPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                biometricPrompt.authenticate(promptInfo);
+            }
+        });
+
 
 
         SpinRightBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +95,13 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
             }
         });
 
+        GoPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNextActivity();
+            }
+        });
+
 
     }
 
@@ -85,6 +121,7 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
     public void startNextActivity() {
         Intent  intent = new Intent(LoginSpinActivity.this, LoginPinActivity.class);
         startActivity(intent);
+        finish();
 
     }
 
@@ -117,6 +154,45 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
     @Override
     public void setButtonStatus(Boolean status) {
         SpinConfirm.setEnabled(status);
+    }
+
+    void fingerprint(){
+        executor = ContextCompat.getMainExecutor(this);
+        biometricPrompt = new BiometricPrompt(LoginSpinActivity.this,
+                executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode,
+                                              @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(getApplicationContext(),
+                        "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(
+                    @NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(getApplicationContext(),
+                        "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+                startFinishActivity();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), "Authentication failed",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric login for my app")
+                .setSubtitle("Log in using your biometric credential")
+                .setNegativeButtonText("Use account password")
+                .build();
+
     }
 
 

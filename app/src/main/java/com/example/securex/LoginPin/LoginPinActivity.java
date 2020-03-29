@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.securex.LandingActivity;
+import com.example.securex.LoginSpin.LoginSpinActivity;
 import com.example.securex.R;
 import com.goodiebag.pinview.Pinview;
 
-public class LoginPinActivity extends AppCompatActivity implements LoginPinActivityMVP.View {
+public class LoginPinActivity extends AppCompatActivity implements LoginPinActivityMVP.View{
     private Pinview pinView;
 
     LoginPinActivityMVP.Presenter presenter;
@@ -63,4 +64,11 @@ public class LoginPinActivity extends AppCompatActivity implements LoginPinActiv
     public void clearPin() {
         pinView.clearValue();
     }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(LoginPinActivity.this, LoginSpinActivity.class));
+        finish();
+    }
+
+
 }
