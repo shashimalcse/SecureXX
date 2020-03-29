@@ -4,7 +4,7 @@ import com.example.securex.R;
 
 import java.util.ArrayList;
 
-public class SpinSix {
+public class SpinSix extends Spin{
 
     final int Degree;
     final ArrayList<String> Fruits;
