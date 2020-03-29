@@ -22,6 +22,8 @@ public interface LoginSpinActivityMVP {
 
         void setCount(int count);
 
+        void setButtonStatus(Boolean status);
+
 
 
 

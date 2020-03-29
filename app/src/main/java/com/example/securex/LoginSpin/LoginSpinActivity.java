@@ -107,5 +107,10 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
         FruitCount.setText(Integer.toString(count));
     }
 
+    @Override
+    public void setButtonStatus(Boolean status) {
+        SpinConfirm.setEnabled(status);
+    }
+
 
 }

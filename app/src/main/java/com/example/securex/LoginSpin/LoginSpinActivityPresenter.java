@@ -1,16 +1,20 @@
 package com.example.securex.LoginSpin;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 
+import com.example.securex.MainActivity;
 import com.example.securex.data.spins.Spin;
 import com.example.securex.data.spins.SpinEight;
 import com.example.securex.data.spins.SpinFour;
 import com.example.securex.data.spins.SpinSix;
 import com.example.securex.data.user.User;
+import com.example.securex.registrationStageOne.RegistrationStageOneActivity;
 
 import java.util.ArrayList;
 
@@ -49,30 +53,48 @@ public class LoginSpinActivityPresenter implements LoginSpinActivityMVP.Presente
     @Override
     public void confirmButtonClicked() {
         SelectedFruits++;
-        view.setCount(SelectedFruits);
-        if(Color_Index<0){
-            Color_Index=Size+Color_Index
-            ;                }
 
-        MatchingPassword+=FruitsArray.get(Color_Index);
-        if(MatchingPassword.equals(UserPassword)){
+        if (Color_Index < 0) {
+            Color_Index = Size + Color_Index;
+        }
+
+
+        MatchingPassword += FruitsArray.get(Color_Index);
+
+        Log.d("PASSWORD",MatchingPassword);
+        if (MatchingPassword.equals(UserPassword)) {
+            SelectedFruits = 0;
+            MatchingPassword="";
             view.showSuccess();
         }
-
-        else if (!MatchingPassword.equals(UserPassword) && SelectedFruits==FruitsArray.size()){
+        else if (!MatchingPassword.equals(UserPassword) && SelectedFruits == FruitsArray.size()) {
             view.showError();
-            SelectedFruits=0;
-            MatchingPassword="";
+            SelectedFruits = 0;
+            MatchingPassword = "";
             Attempts++;
         }
-
-        if(Attempts>3){
+        if (Attempts > 3) {
+            view.setButtonStatus(false);
             view.startNextActivity();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Attempts = 0;
+                    SelectedFruits=0;
+                    MatchingPassword="";
+                    view.setButtonStatus(true);
+                    Log.d("TIME","CALLED");
+                }
+            }, 5000);
+
+
+            Log.d("FRUIT", FruitsArray.get(Color_Index));
+
+
         }
 
 
-        Log.d("FRUIT",FruitsArray.get(Color_Index));
-
+        view.setCount(SelectedFruits);
 
     }
 
