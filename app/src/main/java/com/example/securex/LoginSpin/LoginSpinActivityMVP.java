@@ -1,10 +1,8 @@
-package com.example.securex.Login;
+package com.example.securex.LoginSpin;
 
 import android.content.Context;
 import android.view.animation.RotateAnimation;
 
-import com.example.securex.RegistartionStageThree.ImageAdapter;
-import com.example.securex.RegistartionStageThree.RegistrationStageThreeActivityMVP;
 import com.example.securex.data.spins.Spin;
 import com.example.securex.data.user.User;
 

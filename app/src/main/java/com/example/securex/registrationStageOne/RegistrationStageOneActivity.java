@@ -10,11 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.securex.Login.LoginSpinActivity;
+import com.example.securex.LoginSpin.LoginSpinActivity;
 import com.example.securex.R;
 import com.example.securex.RegistartionStageTwo.RegistrationStageTowActivity;
-
-import javax.inject.Inject;
 
 public class RegistrationStageOneActivity extends AppCompatActivity implements RegistrationStageOneActivityMVP.View {
 

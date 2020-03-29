@@ -1,14 +1,11 @@
-package com.example.securex.Login;
+package com.example.securex.LoginSpin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.Toast;
 
-import com.example.securex.RegistartionStageThree.RegistrationStageThreeActivityMVP;
 import com.example.securex.data.spins.Spin;
 import com.example.securex.data.spins.SpinEight;
 import com.example.securex.data.spins.SpinFour;
@@ -69,10 +66,9 @@ public class LoginSpinActivityPresenter implements LoginSpinActivityMVP.Presente
             Attempts++;
         }
 
-//        if(Attempts>3){
-//            Intent intent = new Intent(SpinActivity.this,PinUnlockActivity.class);
-//            startActivity(intent);
-//        }
+        if(Attempts>3){
+            view.startNextActivity();
+        }
 
 
         Log.d("FRUIT",FruitsArray.get(Color_Index));
@@ -114,7 +110,7 @@ public class LoginSpinActivityPresenter implements LoginSpinActivityMVP.Presente
 
     @Override
     public void setSpins() {
-        model = new LoginModel(context);
+        model = new LoginSpinModel(context);
         user = model.getUser();
         int Size = user.getSize();
         if(Size==4){

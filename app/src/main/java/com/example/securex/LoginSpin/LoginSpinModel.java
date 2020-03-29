@@ -1,17 +1,17 @@
-package com.example.securex.Login;
+package com.example.securex.LoginSpin;
 
 import android.content.Context;
 
 import com.example.securex.data.user.User;
 import com.example.securex.data.user.UserRepository;
 
-public class LoginModel implements LoginSpinActivityMVP.Model {
+public class LoginSpinModel implements LoginSpinActivityMVP.Model {
 
     UserRepository repository;
     Context context;
 
 
-    public LoginModel(Context context) {
+    public LoginSpinModel(Context context) {
         this.context=context;
         repository = new UserRepository(context);
     }

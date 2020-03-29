@@ -1,9 +1,9 @@
-package com.example.securex.Login;
+package com.example.securex.LoginSpin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.securex.LoginPin.LoginPinActivity;
 import com.example.securex.R;
 import com.example.securex.data.spins.Spin;
 
@@ -81,6 +82,8 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
 
     @Override
     public void startNextActivity() {
+        Intent  intent = new Intent(LoginSpinActivity.this, LoginPinActivity.class);
+        startActivity(intent);
 
     }
 
