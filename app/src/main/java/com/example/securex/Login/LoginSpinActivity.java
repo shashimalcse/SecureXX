@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.securex.R;
 import com.example.securex.data.spins.Spin;
@@ -37,7 +39,9 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
 
         presenter = new LoginSpinActivityPresenter();
         presenter.setView(this);
+        presenter.setContext(this);
         presenter.setSpins();
+
 
         SpinRightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,12 +69,14 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
 
     @Override
     public void showSuccess() {
-
+        Toast t = Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_SHORT);
+        t.show();
     }
 
     @Override
     public void showError() {
-
+        Toast t = Toast.makeText(getApplicationContext(),"WRONG",Toast.LENGTH_SHORT);
+        t.show();
     }
 
     @Override
@@ -86,6 +92,16 @@ public class LoginSpinActivity extends AppCompatActivity implements  LoginSpinAc
         FruitSpin.setImageDrawable(getResources().getDrawable(spin.getFruitRing()));
 
 
+    }
+
+    @Override
+    public void spinAnimation(RotateAnimation rotateAnimation) {
+        ColorSpin.startAnimation(rotateAnimation);
+    }
+
+    @Override
+    public void setCount(int count) {
+        FruitCount.setText(Integer.toString(count));
     }
 
 
